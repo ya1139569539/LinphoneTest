@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_start"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            style="@style/status_bar_font"
+            android:id="@+id/tv_current_account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/status_led"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/led_disconnected" />
+
+        <TextView
+            android:id="@+id/status_text"
+            style="@style/status_bar_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/status_not_connected" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/address_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/ll_start"
+        android:background="?attr/lighToolbarBackgroundColor">
+
+        <com.jyn.linphone.dialer.views.EraseButton
+            android:id="@+id/erase"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/content_description_backspace"
+            android:focusableInTouchMode="true"
+            android:src="@drawable/backspace" />
+
+        <com.jyn.linphone.dialer.views.AddressText
+            android:id="@+id/address"
+            style="@style/numpad_composed_number_font"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/erase"
+            android:background="@color/transparent_color"
+            android:backgroundTint="@color/transparent_color"
+            android:ellipsize="start"
+            android:hint="@string/address_bar_hint"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            android:paddingRight="5dp"
+            android:textColorHint="@color/light_grey_color" />
+
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/numpad"
+        layout="@layout/numpad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/start_call"
+        android:layout_below="@id/address_bar"
+        android:layout_centerInParent="true"
+        android:padding="10dp" />
+
+
+    <com.jyn.linphone.call.views.CallButton
+        android:id="@+id/start_call"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/call"
+        android:padding="12dp"
+        android:src="@drawable/call_audio_start" />
+
+
+</RelativeLayout>
