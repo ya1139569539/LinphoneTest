@@ -22,13 +22,14 @@ package com.jyn.linphone.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Surface;
+import androidx.appcompat.app.AppCompatActivity;
 import com.jyn.linphone.LinphoneContext;
 import com.jyn.linphone.LinphoneManager;
 import com.jyn.linphone.service.LinphoneService;
 import org.linphone.core.Core;
 import org.linphone.core.tools.Log;
 
-public abstract class LinphoneGenericActivity extends ThemeableActivity {
+public abstract class LinphoneGenericActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

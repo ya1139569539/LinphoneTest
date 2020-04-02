@@ -51,14 +51,12 @@ public abstract class AssistantActivity extends LinphoneGenericActivity
     @Override
     protected void onResume() {
         super.onResume();
-
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         View statusBar = findViewById(R.id.status);
         if (getResources().getBoolean(R.bool.assistant_hide_status_bar)) {
             statusBar.setVisibility(View.GONE);
         }
-
         View topBar = findViewById(R.id.top_bar);
         if (getResources().getBoolean(R.bool.assistant_hide_top_bar)) {
             topBar.setVisibility(View.GONE);

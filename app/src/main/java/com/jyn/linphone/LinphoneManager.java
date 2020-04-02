@@ -39,6 +39,7 @@ import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+
 import com.jyn.linphone.assistant.PhoneAccountLinkingAssistantActivity;
 import com.jyn.linphone.call.AndroidAudioManager;
 import com.jyn.linphone.call.CallManager;
@@ -47,11 +48,7 @@ import com.jyn.linphone.settings.LinphonePreferences;
 import com.jyn.linphone.utils.LinphoneUtils;
 import com.jyn.linphone.utils.MediaScanner;
 import com.jyn.linphone.utils.PushNotificationUtils;
-import java.io.File;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
+
 import org.linphone.core.AccountCreator;
 import org.linphone.core.AccountCreatorListenerStub;
 import org.linphone.core.Call;
@@ -70,6 +67,12 @@ import org.linphone.core.TunnelConfig;
 import org.linphone.core.VersionUpdateCheckResult;
 import org.linphone.core.tools.H264Helper;
 import org.linphone.core.tools.Log;
+
+import java.io.File;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /** Handles Linphone's Core lifecycle */
 public class LinphoneManager implements SensorEventListener {
@@ -546,11 +549,8 @@ public class LinphoneManager implements SensorEventListener {
         core.setVideoDevice(firstDevice);
     }
 
-    /* Account linking */
-
     public AccountCreator getAccountCreator() {
         if (mAccountCreator == null) {
-            Log.w("[Manager] Account creator shouldn't be null !");
             mAccountCreator =
                     mCore.createAccountCreator(LinphonePreferences.instance().getXmlrpcUrl());
             mAccountCreator.setListener(mAccountCreatorListener);
